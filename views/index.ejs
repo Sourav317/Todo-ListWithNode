@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <!-- will set a dynamic way to change todo title  -->
+        <title>Onizuke</title>
+        <link rel="stylesheet" href="/css/index.css">
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    </head>
+
+    <body>
+        <!-- Creating a form for all inputs -->
+        <div class="container">
+            <div class="header">My Todo App </div>
+            
+            <form action="/new_todo" method="POST">
+
+                <div class="form">
+                    <input type="text" name="name" class="input_class" placeholder="Enter Your Task Here" >
+                    <hr>
+                    <!-- for calender -->
+                    <div class="col-calender">
+                        <input class="form-control" type="date" name="date" value="2020-05-19" id="example-date-input">
+                    </div>
+                    <hr>
+                      <select type="category" name="category" style="height: 35px; padding: 5px; margin-right: 40px;border-radius: 5px;">
+                          <option>OFFICE</option>
+                          <option>SCHOOL</option>
+                          <option>HOME</option>
+                      </select>
+                    <button type="submit" class="addbtn" style="height: 35px;">ADD TASK</button>
+                    <hr>
+                </div>
+
+<!-- ending form -->
+
+           </form>
+
+           <div class="display_todo_cont">
+            <ul class="display_todo_ul" >
+                 <%  for( var i of todo_desc){  %>
+                     <li>
+                        <div class="display_todo_div">                              <!--  style to remove the checkbox -->
+                            <input type="checkbox" id="enabled<%= i %>" name="check" value="false" style="display: none;">
+                           <p > <%= i.name %> </p> 
+                           <p> <%= i.date  %> </p>
+                           <p> <%= i.category %> </p>
+                            <!-- query param and can chain them as much as i want  -->
+                             <a href="/delete_list/?id=<%= i._id %>">
+                                <button class="del_btn" >Delete</button>
+                             </a>
+                        </div>
+                        <hr>
+                    </li>
+
+              <%  }  %>
+            </ul>
+        </div> 
+
+        </div>
+        <script type="text/javascript" src="/js/index.js"></script>
+    </body>
+</html>

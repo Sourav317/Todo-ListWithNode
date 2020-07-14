@@ -1,0 +1,17 @@
+{
+  "name": "todo_with_node",
+  "version": "1.0.0",
+  "description": "Just a todo app with node express and mongo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "helix32",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.19"
+  }
+}
